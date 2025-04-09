@@ -1,25 +1,50 @@
-import './style.css'
+    import './style.css'
+import Trash from '../../assets/lixeira.png'
 
 function Home() {
 
-  return (
-    <div>
-      <from action>
-      <h1>Cadastrar Usuarios</h1>
-      <input type="text" name="name" id="" placeholder='Entre com seu nome' />
-      <input type="text" name="email" id="" placeholder='Entre com seu email' />
-      <input type="number=" name="age" id=""/>
-      <button type="button">Cadastrar</button>
-      </from>
-    <div>
-      <div>
-        <p>Nome:</p>
-        <p>Email:</p>
-        <p>Age</p>
-      <div>
-    </div>
-      
+  const users = [
+    {
+      id: 'grjytjl87946y4w5nb',
+    name:'Cleo',
+    email:'cleo2@gmail.com',
+    age:50
+    },
+    {
+      id:'ing27hvbu50mr5',
+    name:'Gabriela',
+    email:'gabibarros@gmail.com',
+    age:21
+    }]
 
-  }
-   
+  return (
+
+    <div className='container'>
+      <form>
+        <h1>Cadastro de Usuários</h1>
+        <input name='name' type="text" placeholder='Enter your name' />
+        <input name='email' type="email" placeholder='Enter your email' />
+        <input name='age' type="number" placeholder='Enter your age' />
+        <button type="button" className='button'>Cadastrar</button>
+      </form>
+
+      {users.map((user) => (
+        <div key={user.id} className='card'>
+          <div>
+            <p>Nome: <span>user.name</span></p>
+            <p>Email: <span>user.email</span></p>
+            <p>Age: <span>user.age</span></p>
+          </div>
+          
+          <button>
+            <img src={Trash} alt="Trash" />
+          </button>
+        </div>
+
+      ))}
+    </div>      
+
+  )
+}
+
 export default Home
